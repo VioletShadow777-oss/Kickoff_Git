@@ -5,12 +5,11 @@ public class ProjectileLauncher : MonoBehaviour
 {
     // References
     private Rigidbody _rb;
+    private ProjectileLaunchAngleOscilation projectileLaunchAngleOscilation;
 
     [Header("Launch Settings")]
     [SerializeField] private GameObject _launchPosition;
-    [Tooltip("Horizontal angle in degrees for the launch direction. Range: -30 to +30 degrees.")]
-    [Range(-30f, 30f)]
-    [SerializeField] private float horizontalAngle = 0f;
+    
     public float _launchForce = 10f;
 
 
@@ -18,6 +17,7 @@ public class ProjectileLauncher : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        projectileLaunchAngleOscilation = GetComponent<ProjectileLaunchAngleOscilation>();
     }
 
     public void LaunchInput(InputAction.CallbackContext context)
@@ -30,16 +30,19 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void LaunchProjectile()
     {
-
+        
         if (_rb != null && _launchPosition != null)
         {
-            Vector3 forward = Quaternion.Euler(0, horizontalAngle, 0) * transform.forward;
+            Vector3 forward = Quaternion.Euler(0, projectileLaunchAngleOscilation.horizontalAngle, 0) * transform.forward;
             Vector3 launchDirection = (forward + (Vector3.up * 0.5f)).normalized;
 
             _rb.linearVelocity = launchDirection * _launchForce;
 
 
         }
+
+        projectileLaunchAngleOscilation.enabled = false;
+        UIManager.Instance.HideOscilationUI();
     }
 
     public void ResetBall()
@@ -48,5 +51,11 @@ public class ProjectileLauncher : MonoBehaviour
         _rb.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
         transform.position = _launchPosition.transform.position;
+
+        // Re-enable the launch angle oscillation for the next launch
+        projectileLaunchAngleOscilation.enabled = true;
+
+        // Show the oscillation UI again for the next launch
+        UIManager.Instance.ShowOscilationUI();
     }
 }
