@@ -35,7 +35,7 @@ public class ProjectileController : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         _steerForce = 0f;
-        _rb.linearDamping = 1f; // Increase linear damping to slow down the ball when in contact
+        _rb.linearDamping = 1.5f; // Increase linear damping to slow down the ball when in contact
     }
 
     // Reset the steering force when the ball is no longer in contact with another object
