@@ -6,6 +6,8 @@ public class ProjectileLauncher : MonoBehaviour
     // References
     private Rigidbody _rb;
     private ProjectileLaunchAngleOscilation projectileLaunchAngleOscilation;
+    private BallStopDetector _ballStopDetector;
+    private ProjectileCommentary _projectileCommentary;
 
     [Header("Launch Settings")]
     [SerializeField] private GameObject _launchPosition;
@@ -18,6 +20,8 @@ public class ProjectileLauncher : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         projectileLaunchAngleOscilation = GetComponent<ProjectileLaunchAngleOscilation>();
+        _ballStopDetector = GetComponent<BallStopDetector>();
+        _projectileCommentary = GetComponent<ProjectileCommentary>();
     }
 
     public void LaunchInput(InputAction.CallbackContext context)
@@ -42,6 +46,8 @@ public class ProjectileLauncher : MonoBehaviour
         }
 
         projectileLaunchAngleOscilation.enabled = false;
+        _ballStopDetector.StartDetection();
+        _projectileCommentary.ShowKickComment();
         UIManager.Instance.HideOscilationUI();
     }
 
@@ -57,5 +63,11 @@ public class ProjectileLauncher : MonoBehaviour
 
         // Show the oscillation UI again for the next launch
         UIManager.Instance.ShowOscilationUI();
+
+        // Reset the ball stop detector for the next launch
+        _ballStopDetector.ResetDetection();
+
+        // hide the reset UI after resetting the ball
+        UIManager.Instance.HideResetUI();
     }
 }
