@@ -1,0 +1,77 @@
+{
+    "version": 1,
+    "name": "BallController",
+    "maps": [
+        {
+            "name": "Ball",
+            "id": "b53fe14f-dc32-40f3-b2e3-28471824a7b0",
+            "actions": [
+                {
+                    "name": "Steering",
+                    "type": "Button",
+                    "id": "ccd82443-167f-4313-a0e6-78f64537735d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Launch",
+                    "type": "Button",
+                    "id": "06c861bc-88dc-4686-9d88-713292017851",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "4e881fc5-1e12-4adb-9b1c-eb38ef85a111",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1547ecd6-23b9-48b4-9d1b-df4cfdf0e525",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "0f9b8296-1608-45a6-935f-c52dc035a58f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Steering",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "96890d3e-a40f-4439-9ab1-18cf32d9907a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Launch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
