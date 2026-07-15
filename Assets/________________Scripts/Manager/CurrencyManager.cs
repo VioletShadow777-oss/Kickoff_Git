@@ -34,6 +34,9 @@ public class CurrencyManager : MonoBehaviour
 
         // Notify UI
         UIManager.Instance.UpdateMoney(CurrentMoney);
+
+        // Save the game after adding money
+        SaveManager.Instance.SaveGame();
     }
 
     /// <summary>
@@ -58,6 +61,9 @@ public class CurrencyManager : MonoBehaviour
         // Notify UI
         UIManager.Instance.UpdateMoney(CurrentMoney);
 
+        // Save the game after spending money
+        SaveManager.Instance.SaveGame();
+
         return true;
     }
 
@@ -67,5 +73,12 @@ public class CurrencyManager : MonoBehaviour
     public bool CanAfford(int amount)
     {
         return CurrentMoney >= amount;
+    }
+
+    public void SetMoney(int amount)
+    {
+        CurrentMoney = amount;
+
+        UIManager.Instance.UpdateMoney(CurrentMoney);
     }
 }
