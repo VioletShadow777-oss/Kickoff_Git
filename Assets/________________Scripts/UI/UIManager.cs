@@ -109,7 +109,7 @@ public class UIManager : MonoBehaviour
     {
         if (_moneyText != null)
         {
-            _moneyText.text = $"Money: {amount}";
+            _moneyText.text = amount.ToString();
         }
     }
     #endregion
@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        priceText.text = "$" + nextUpgrade.price;
+        priceText.text = nextUpgrade.price.ToString();
 
         upgradeButtonImage.sprite =
             canUpgrade ? availableSprite
