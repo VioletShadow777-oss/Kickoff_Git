@@ -37,6 +37,9 @@ public class CurrencyManager : MonoBehaviour
 
         // Save the game after adding money
         SaveManager.Instance.SaveGame();
+
+        // Refresh the Upgrade Button UI
+        UpgradeManager.Instance.RefreshUpgradeUI();
     }
 
     /// <summary>
@@ -63,6 +66,9 @@ public class CurrencyManager : MonoBehaviour
 
         // Save the game after spending money
         SaveManager.Instance.SaveGame();
+
+        // Refresh the Upgrade Button UI
+        UpgradeManager.Instance.RefreshUpgradeUI();
 
         return true;
     }

@@ -9,7 +9,7 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -35,8 +35,8 @@ public class SaveManager : MonoBehaviour
         // Currency
         data.money = CurrencyManager.Instance.CurrentMoney;
 
-        // Future systems
-        // data.kickForceLevel = UpgradeManager.Instance.KickForceLevel;
+
+        data.kickForceLevel = UpgradeManager.Instance.CurrentKickForceLevel;
         // data.selectedBallSkin = SkinManager.Instance.SelectedSkin;
         // data.highestDistance = DistanceManager.Instance.HighestDistance;
 
@@ -50,7 +50,7 @@ public class SaveManager : MonoBehaviour
     // Load
     public void LoadGame()
     {
-        if(!File.Exists(_savePath))
+        if (!File.Exists(_savePath))
         {
             Debug.Log("No save file found.");
             return;
@@ -62,8 +62,8 @@ public class SaveManager : MonoBehaviour
         // Currency
         CurrencyManager.Instance.SetMoney(data.money);
 
-        // Future systems
-        // UpgradeManager.Instance.SetKickForceLevel(data.kickForceLevel);
+        // Upgrades
+        UpgradeManager.Instance.SetCurrentLevel(data.kickForceLevel);
         // SkinManager.Instance.SetSelectedSkin(data.selectedBallSkin);
         // DistanceManager.Instance.SetHighestDistance(data.highestDistance);
 

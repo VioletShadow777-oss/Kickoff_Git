@@ -12,7 +12,6 @@ public class ProjectileLauncher : MonoBehaviour
     [Header("Launch Settings")]
     [SerializeField] private GameObject _launchPosition;
     
-    public float _launchForce = 10f;
 
 
 
@@ -34,13 +33,14 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void LaunchProjectile()
     {
-        
+        float launchForce = UpgradeManager.Instance.CurrentKickForce;
+
         if (_rb != null && _launchPosition != null)
         {
             Vector3 forward = Quaternion.Euler(0, projectileLaunchAngleOscilation.horizontalAngle, 0) * transform.forward;
             Vector3 launchDirection = (forward + (Vector3.up * 0.5f)).normalized;
 
-            _rb.linearVelocity = launchDirection * _launchForce;
+            _rb.linearVelocity = launchDirection * launchForce;
 
 
         }
@@ -49,6 +49,8 @@ public class ProjectileLauncher : MonoBehaviour
         _ballStopDetector.StartDetection();
         _projectileCommentary.ShowKickComment();
         UIManager.Instance.HideOscilationUI();
+
+        Debug.Log("Launchforce: " + launchForce);
     }
 
     public void ResetBall()
