@@ -1,7 +1,6 @@
-using System.ComponentModel.Design;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +17,15 @@ public class UIManager : MonoBehaviour
 
     [Header("Currency UI")]
     [SerializeField] private TMP_Text _moneyText;
+
+    [Header("Upgrade Settings")]
+    [SerializeField] private Image upgradeButtonImage;
+
+    [SerializeField] private TMP_Text priceText;
+
+    [SerializeField] private Sprite availableSprite;
+
+    [SerializeField] private Sprite unavailableSprite;
 
     private void Awake()
     {
@@ -87,5 +95,26 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+
+    #region Upgrade UI Methods
+    public void UpdateUpgradeUI(bool canUpgrade,
+                            UpgradeLevel nextUpgrade)
+    {
+        if (nextUpgrade == null)
+        {
+            priceText.text = "MAX";
+
+            upgradeButtonImage.sprite = unavailableSprite;
+
+            return;
+        }
+
+        priceText.text = "$" + nextUpgrade.price;
+
+        upgradeButtonImage.sprite =
+            canUpgrade ? availableSprite
+                       : unavailableSprite;
+    }
+    #endregion
 
 }
