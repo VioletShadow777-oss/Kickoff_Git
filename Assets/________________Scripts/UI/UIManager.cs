@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [Header("Reset UI Settings")]
     [SerializeField] private GameObject _resetUI;
 
+    [Header("UI to hide while projectile is in motion")]
+    [SerializeField] private GameObject[] _hiddens;
+
     [Header("Projectile Distance UI")]
     [SerializeField] private TMP_Text _distanceText;
 
@@ -40,6 +43,22 @@ public class UIManager : MonoBehaviour
         _resetUI.SetActive(false);
     }
 
+    public void HideUIWhileProjectileInMotion()
+    {
+        foreach (var ui in _hiddens)
+        {
+            if (ui != null)
+                ui.SetActive(false);
+        }
+    }
+    public void ShowUIAfterProjectileStopped()
+    {
+        foreach (var ui in _hiddens)
+        {
+            if (ui != null)
+                ui.SetActive(true);
+        }
+    }
 
     #region Oscilation UI Methods
     public void ShowOscilationUI()

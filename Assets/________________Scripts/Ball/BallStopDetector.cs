@@ -42,6 +42,9 @@ public class BallStopDetector : MonoBehaviour
                 // Show reset UI
                 UIManager.Instance.ShowResetUI();
 
+                // Show hidden UI elements again
+                UIManager.Instance.ShowUIAfterProjectileStopped();
+
                 // Reward the player with money for stopping the ball
                 CurrencyManager.Instance.AddMoney(Mathf.RoundToInt(_projectileDistance._distance));
             }
