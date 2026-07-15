@@ -2706,6 +2706,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   _OscilationUI: {fileID: 652362972}
   _resetUI: {fileID: 262748209}
+  _hiddens:
+  - {fileID: 1155937585}
+  - {fileID: 1660435805}
+  - {fileID: 262748209}
   _distanceText: {fileID: 2035024456}
   _moneyText: {fileID: 1727245820}
   upgradeButtonImage: {fileID: 417408932}

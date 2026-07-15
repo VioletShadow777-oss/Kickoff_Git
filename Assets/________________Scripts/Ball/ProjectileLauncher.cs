@@ -45,10 +45,20 @@ public class ProjectileLauncher : MonoBehaviour
 
         }
 
+        // Disable the launch angle oscillation after launching the projectile
         projectileLaunchAngleOscilation.enabled = false;
+
+        // Start detecting when the ball stops moving
         _ballStopDetector.StartDetection();
+
+        // Show commentary for the kick
         _projectileCommentary.ShowKickComment();
+
+        // Hide the oscillation UI since the projectile has been launched
         UIManager.Instance.HideOscilationUI();
+
+        // Hide the UI elements that should not be visible while the projectile is in motion
+        UIManager.Instance.HideUIWhileProjectileInMotion();
 
         Debug.Log("Launchforce: " + launchForce);
     }
