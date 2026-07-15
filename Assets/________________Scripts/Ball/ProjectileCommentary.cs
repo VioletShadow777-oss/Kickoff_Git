@@ -13,6 +13,8 @@ public class ProjectileCommentary : MonoBehaviour
     [Header("Display Settings")]
     [SerializeField] private float displayTime = 1.5f;
 
+    [HideInInspector] public string comment;
+
     private void Start()
     {
         angleOscillation = GetComponent<ProjectileLaunchAngleOscilation>();
@@ -25,7 +27,7 @@ public class ProjectileCommentary : MonoBehaviour
     {
         float angle = Mathf.Abs(angleOscillation.horizontalAngle);
 
-        string comment;
+        
 
         if (angle <= 5f)
             comment = "PERFECT!";

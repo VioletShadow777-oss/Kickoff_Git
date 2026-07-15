@@ -7,7 +7,7 @@ public class ProjectileLauncher : MonoBehaviour
     private Rigidbody _rb;
     private ProjectileLaunchAngleOscilation projectileLaunchAngleOscilation;
     private BallStopDetector _ballStopDetector;
-    private ProjectileCommentary _projectileCommentary;
+    [SerializeField] private CameraShakeController _cameraShakeController;
 
     [Header("Launch Settings")]
     [SerializeField] private GameObject _launchPosition;
@@ -20,16 +20,9 @@ public class ProjectileLauncher : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         projectileLaunchAngleOscilation = GetComponent<ProjectileLaunchAngleOscilation>();
         _ballStopDetector = GetComponent<BallStopDetector>();
-        _projectileCommentary = GetComponent<ProjectileCommentary>();
     }
 
-    public void LaunchInput(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            LaunchProjectile(); // Later this method will replaced with a 3d models kicking animation event that will trigger the launch of the projectile
-        }
-    }
+    
 
     public void LaunchProjectile()
     {
@@ -45,20 +38,13 @@ public class ProjectileLauncher : MonoBehaviour
 
         }
 
-        // Disable the launch angle oscillation after launching the projectile
-        projectileLaunchAngleOscilation.enabled = false;
+        
 
         // Start detecting when the ball stops moving
         _ballStopDetector.StartDetection();
 
-        // Show commentary for the kick
-        _projectileCommentary.ShowKickComment();
-
-        // Hide the oscillation UI since the projectile has been launched
-        UIManager.Instance.HideOscilationUI();
-
-        // Hide the UI elements that should not be visible while the projectile is in motion
-        UIManager.Instance.HideUIWhileProjectileInMotion();
+        // Stop the camera Shake
+        _cameraShakeController.StopShake(); 
 
         Debug.Log("Launchforce: " + launchForce);
     }
