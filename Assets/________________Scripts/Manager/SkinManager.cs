@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class SkinManager : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer _ballMeshRenderer;
+    [SerializeField] private GameObject[] _balls;
  
 
 
-    public void ChangeMaterial(Material newMaterial)
+    public void ChangeMaterial(int ballNumber)
     {
-        _ballMeshRenderer.material = newMaterial;
+        foreach (GameObject item in _balls)
+        {
+            item.SetActive(false);
+        }
+
+        _balls[ballNumber].SetActive(true);
     }
 
 
