@@ -35,6 +35,7 @@ public class ProjectileLauncher : MonoBehaviour
 
             _rb.linearVelocity = launchDirection * launchForce;
 
+            _rb.AddTorque(Vector3.right * Random.Range(10, 30));
 
         }
 
@@ -44,7 +45,10 @@ public class ProjectileLauncher : MonoBehaviour
         _ballStopDetector.StartDetection();
 
         // Stop the camera Shake
-        _cameraShakeController.StopShake(); 
+        _cameraShakeController.StopShake();
+
+        // Reset the camera FOV
+        _cameraShakeController.ResetFOV();
 
         Debug.Log("Launchforce: " + launchForce);
     }

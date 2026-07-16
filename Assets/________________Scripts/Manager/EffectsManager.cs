@@ -28,7 +28,10 @@ public class EffectsManager : MonoBehaviour
            StartCoroutine(PerfectHitSlowMotion());
 
             // Increase the camera shake intensity for a more dramatic effect
-            _cameraShakeController.IncreaseShake(2f, 2f);  
+            _cameraShakeController.IncreaseShake(0.5f, 8f);
+
+            // Increase the camera Fov
+            _cameraShakeController.IncreaseFOV(3f);
         }
 
 
@@ -40,6 +43,8 @@ public class EffectsManager : MonoBehaviour
         Time.timeScale = 0.2f;
 
         yield return new WaitForSecondsRealtime(1f);
+
+        
 
         Time.timeScale = 1f;
     }
