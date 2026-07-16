@@ -116,8 +116,7 @@ public class UIManager : MonoBehaviour
 
 
     #region Upgrade UI Methods
-    public void UpdateUpgradeUI(bool canUpgrade,
-                            UpgradeLevel nextUpgrade)
+    public void UpdateUpgradeUI(bool canUpgrade, UpgradeLevel nextUpgrade)
     {
         if (nextUpgrade == null)
         {
