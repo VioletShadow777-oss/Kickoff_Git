@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +30,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite availableSprite;
 
     [SerializeField] private Sprite unavailableSprite;
+
+    [Header("Menu UI Settings")]
+    [SerializeField] private Animator _menuAnimator;
+    private bool _isMenuAppeared = false;
 
     private void Awake()
     {
@@ -114,7 +119,6 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
-
     #region Upgrade UI Methods
     public void UpdateUpgradeUI(bool canUpgrade, UpgradeLevel nextUpgrade)
     {
@@ -132,6 +136,22 @@ public class UIManager : MonoBehaviour
         upgradeButtonImage.sprite =
             canUpgrade ? availableSprite
                        : unavailableSprite;
+    }
+    #endregion
+
+    #region Menu UI Methods
+    public void ToggleMenu()
+    {
+        if(_isMenuAppeared == false)
+        {
+            _menuAnimator.SetBool("menu_b", true);
+            _isMenuAppeared = true;
+        }
+        else
+        {
+            _menuAnimator.SetBool("menu_b", false);
+            _isMenuAppeared = false;
+        }
     }
     #endregion
 
