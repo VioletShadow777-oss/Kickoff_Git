@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _kickSound;
     [SerializeField] private AudioClip _bounceSound;
     [SerializeField] private AudioClip _dramaticSound;
+    [Space]
+    [Header("Coin Sounds")]
+    [SerializeField] private AudioClip _coinSound;
+
 
     private void Awake()
     {
@@ -70,6 +75,13 @@ public class SoundManager : MonoBehaviour
         _audioSource.volume = 0.7f;
         _audioSource.clip = _dramaticSound;
         _audioSource.PlayDelayed(0.5f);
+    }
+    #endregion
+
+    #region Coin Sound Method
+    public void PlayCoinSound()
+    {
+        _audioSource.PlayOneShot(_coinSound);
     }
     #endregion
 
