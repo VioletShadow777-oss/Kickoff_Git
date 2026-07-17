@@ -16,7 +16,8 @@ public class KickerAnimaitonEvents : MonoBehaviour
     {
         _projectileLauncher.LaunchProjectile();
 
-        
+        // Play kick sound at full volume
+        SoundManager.instance.PlayKickSound(1f);
     }
 
     public void ResetKickAnimation()
