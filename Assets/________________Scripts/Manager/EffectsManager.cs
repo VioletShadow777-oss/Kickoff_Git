@@ -6,9 +6,11 @@ public class EffectsManager : MonoBehaviour
     public static EffectsManager Instance { get; private set; }
     // References
     [SerializeField]
+    public Transform _ballTransform;
     private Animator _animator;
     [Header("Ball Effects")]
     [SerializeField] private ParticleSystem _upgradeAndChange;
+    [SerializeField] private float _upgradeAndChangeYOffset;
     [SerializeField] private ParticleSystem _energyUp;
     [SerializeField] GameObject _commonTrail;
     [SerializeField] GameObject _firetrail;
@@ -40,7 +42,7 @@ public class EffectsManager : MonoBehaviour
             _cameraShakeController.IncreaseShake(0.5f, 8f);
 
             // Increase the camera Fov
-            _cameraShakeController.IncreaseFOV(3f);
+            _cameraShakeController.IncreaseFOV(5f);
 
             // Show Fire Trail
             ShowFireTrail();
@@ -58,6 +60,9 @@ public class EffectsManager : MonoBehaviour
     // Ball Upgrade and change Effect
     public void BallUpgradeAndChangeEffect()
     {
+        _upgradeAndChange.transform.position = new Vector3 (_ballTransform.position.x,
+                                                            _ballTransform.position.y + _upgradeAndChangeYOffset,
+                                                            _ballTransform.position.z);
         _upgradeAndChange.Play();
     }
 

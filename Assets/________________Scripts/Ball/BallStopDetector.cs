@@ -47,6 +47,9 @@ public class BallStopDetector : MonoBehaviour
 
                 // Reward the player with money for stopping the ball
                 CurrencyManager.Instance.AddMoney(Mathf.RoundToInt(_projectileDistance._distance));
+
+                // Play Coin Sound
+                SoundManager.instance.PlayCoinSound();
             }
         }
         else
