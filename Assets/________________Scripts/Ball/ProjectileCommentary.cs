@@ -30,17 +30,35 @@ public class ProjectileCommentary : MonoBehaviour
         
 
         if (angle <= 5f)
+        {
             comment = "PERFECT!";
+            commentaryText.color = Color.green;
+        }
         else if (angle <= 10f)
+        {
             comment = "GREAT!";
+            commentaryText.color = Color.cyan;
+        }
         else if (angle <= 15f)
+        {
             comment = "GOOD!";
+            commentaryText.color = Color.yellow;
+        }
         else if (angle <= 20f)
+        {
             comment = "NICE!";
+            commentaryText.color = new Color32(255, 165, 0, 255); // Orange
+        }
         else if (angle <= 25f)
+        {
             comment = "OKAY!";
+            commentaryText.color = Color.white;
+        }
         else
+        {
             comment = "OOPS!";
+            commentaryText.color = Color.red;
+        }
 
         commentaryText.text = comment;
 
