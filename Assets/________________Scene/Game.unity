@@ -12957,12 +12957,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2142282305}
     - target: {fileID: 4343683846691634900, guid: c1628b6e15291344c85527366b584be8, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343683846691634900, guid: c1628b6e15291344c85527366b584be8, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5190012900852364564}
     - target: {fileID: 4397174661020959555, guid: c1628b6e15291344c85527366b584be8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4682237166423157987, guid: c1628b6e15291344c85527366b584be8, type: 3}
       propertyPath: m_Name
@@ -13028,7 +13032,8 @@ PrefabInstance:
       propertyPath: commentaryPanel
       value: 
       objectReference: {fileID: 766626445}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4397174661020959555, guid: c1628b6e15291344c85527366b584be8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5797192707859828741, guid: c1628b6e15291344c85527366b584be8, type: 3}
