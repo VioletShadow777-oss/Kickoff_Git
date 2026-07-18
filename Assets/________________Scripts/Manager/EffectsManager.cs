@@ -1,5 +1,7 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EffectsManager : MonoBehaviour
 {
@@ -15,6 +17,12 @@ public class EffectsManager : MonoBehaviour
     [SerializeField] GameObject _commonTrail;
     [SerializeField] GameObject _firetrail;
 
+
+    [Header("Add Currency Effect")]
+    [SerializeField] private Animator _addAnimator;
+    [SerializeField] private TMP_Text _addCurrencyText;
+
+    [Space]
     // Scripts
     [SerializeField]
     private ProjectileCommentary _projectileCommentry;
@@ -89,5 +97,13 @@ public class EffectsManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    
+  
+
+    public void ShowAddCurrencyEffect(int amount)
+    {
+        _addCurrencyText.text = "+"+ amount.ToString();
+        _addAnimator?.SetTrigger("add_t");
+    }
 
 }
