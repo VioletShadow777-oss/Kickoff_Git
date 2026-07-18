@@ -40,6 +40,9 @@ public class CurrencyManager : MonoBehaviour
 
         // Refresh the Upgrade Button UI
         UpgradeManager.Instance.RefreshUpgradeUI();
+
+        // Show Add Courrency Animation
+        EffectsManager.Instance.ShowAddCurrencyEffect(amount);
     }
 
     /// <summary>

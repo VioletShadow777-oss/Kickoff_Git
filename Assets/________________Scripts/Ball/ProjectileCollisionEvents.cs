@@ -12,10 +12,13 @@ public class ProjectileCollisionEvents : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Breakable"))
+        if (collision.gameObject.CompareTag("Breakable"))
         {
-            SoundManager.instance.PlayBounceSound(1);
+            CurrencyManager.Instance.AddMoney(100);
+            EffectsManager.Instance.ShowAddCurrencyEffect(100);
+            SoundManager.instance.PlayCoinSound();
         }
+            SoundManager.instance.PlayBounceSound(1);
     }
 
     // Collision detection to stop steering when the ball is in contact with another object
