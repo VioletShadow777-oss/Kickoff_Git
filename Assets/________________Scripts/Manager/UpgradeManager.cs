@@ -41,18 +41,28 @@ public class UpgradeManager : MonoBehaviour
     public void BuyKickForceUpgrade()
     {
         if (!CanUpgrade())
+        {
+            SoundManager.instance.CannotUpgradeSound();
             return;
+        }
 
         int price = GetNextUpgrade().price;
 
         if (!CurrencyManager.Instance.SpendMoney(price))
+        {
+            SoundManager.instance.CannotUpgradeSound();
             return;
+        }
 
         currentKickForceLevel++;
 
         RefreshUpgradeUI();
 
         SaveManager.Instance.SaveGame();
+
+        // Show upgrade Effect
+        EffectsManager.Instance.BallUpgradeAndChangeEffect();
+        SoundManager.instance.PlayUpgradeSound();
     }
 
     //------------------------------------------------
