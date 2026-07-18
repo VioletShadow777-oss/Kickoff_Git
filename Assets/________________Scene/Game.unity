@@ -5236,7 +5236,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 809240776}
-  - component: {fileID: 809240777}
   m_Layer: 5
   m_Name: Bonus Panel
   m_TagString: Untagged
@@ -5265,28 +5264,6 @@ RectTransform:
   m_AnchoredPosition: {x: 27.49, y: 0}
   m_SizeDelta: {x: 330.8075, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &809240777
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809240775}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 654be8c6d56ec6741bec9c47a6eaa3ec, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &822956155
 GameObject:
   m_ObjectHideFlags: 0
@@ -6850,7 +6827,6 @@ MonoBehaviour:
   _energyUp: {fileID: 499750747}
   _commonTrail: {fileID: 1175502264}
   _firetrail: {fileID: 1642591469600656404}
-  _bonusAnimator: {fileID: 2118717674}
   _addAnimator: {fileID: 2118717674}
   _addCurrencyText: {fileID: 1085500973}
   _projectileCommentry: {fileID: 633569821}
