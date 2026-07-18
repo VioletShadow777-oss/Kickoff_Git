@@ -68,7 +68,7 @@ public class EffectsManager : MonoBehaviour
     // Ball Upgrade and change Effect
     public void BallUpgradeAndChangeEffect()
     {
-        _upgradeAndChange.transform.position = new Vector3 (_ballTransform.position.x,
+        _upgradeAndChange.transform.position = new Vector3(_ballTransform.position.x,
                                                             _ballTransform.position.y + _upgradeAndChangeYOffset,
                                                             _ballTransform.position.z);
         _upgradeAndChange.Play();
@@ -97,12 +97,12 @@ public class EffectsManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    
-  
+
+
 
     public void ShowAddCurrencyEffect(int amount)
     {
-        _addCurrencyText.text = "+"+ amount.ToString();
+        _addCurrencyText.text = "+" + amount.ToString();
         _addAnimator?.SetTrigger("add_t");
     }
 

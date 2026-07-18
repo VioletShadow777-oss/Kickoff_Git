@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip _kickSound;
     [SerializeField] private AudioClip _bounceSound;
     [SerializeField] private AudioClip _dramaticSound;
+    [SerializeField] private AudioClip _cannotUpgradeSound;
     [Space]
     [Header("Coin Sounds")]
     [SerializeField] private AudioClip _coinSound;
@@ -75,6 +76,10 @@ public class SoundManager : MonoBehaviour
         _audioSource.volume = 0.7f;
         _audioSource.clip = _dramaticSound;
         _audioSource.PlayDelayed(0.5f);
+    }
+    public void CannotUpgradeSound()
+    {
+        _audioSource.PlayOneShot(_cannotUpgradeSound);
     }
     #endregion
 
