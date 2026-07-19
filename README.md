@@ -102,7 +102,7 @@ The progression system reinforces the theme: each kickoff takes the ball further
 1. Install **Unity 6000.4.0f1** (Unity 6)
 2. Clone this repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Kickoff_Git.git
+   git clone https://github.com/VioletShadow777-oss/Kickoff_Git.git
    ```
 3. Open the project in Unity Hub
 4. Open the `MainMenu` scene from `Assets/________________Scene/`
