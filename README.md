@@ -91,7 +91,7 @@ The progression system reinforces the theme: each kickoff takes the ball further
 - **Windows 10/11** (64-bit)
 
 ### Playing the Game
-1. Download the latest release from the [Releases](#) page (or the itch.io submission)
+1. Download the latest release from the [Releases](https://arsayem53.itch.io/kick-horizon) page.
 2. Extract the ZIP file
 3. Run **`Kickoff.exe`**
 4. Enjoy!
